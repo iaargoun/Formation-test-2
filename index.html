@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation IA - Lefebvre Dalloz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #EF7A00;
+            --blue: #1E3F79;
+            --bg-light: #F2F2F2;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo { max-width: 220px; height: auto; margin-bottom: 1.5rem; }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--blue);
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .accroche { font-style: italic; color: #555; font-size: 1.1rem; max-width: 600px; margin: 0.5rem auto; }
+
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+
+        .section-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: var(--blue);
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        /* Accordéon */
+        details {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            padding: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--blue);
+            list-style: none;
+            position: relative;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        summary::after {
+            content: '▼';
+            position: absolute;
+            right: 1.2rem;
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after { transform: rotate(180deg); }
+
+        details[open] { border-color: var(--orange); background: #fffcf9; }
+
+        .content { padding: 0 1.2rem 1.2rem; font-size: 1rem; color: #444; }
+
+        /* Infos pratiques */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+        .info-item { background: var(--bg-light); padding: 1.2rem; border-radius: 8px; border-left: 4px solid var(--orange); }
+
+        /* Carte */
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            border: 1px solid #ddd;
+        }
+
+        /* Boutons */
+        .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; justify-content: center; }
+        .btn {
+            background-color: var(--blue);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.3s;
+            text-align: center;
+            min-width: 200px;
+        }
+        .btn:hover { background-color: #142d56; transform: translateY(-2px); }
+        .btn-orange { background-color: var(--orange); }
+        .btn-orange:hover { background-color: #d16b00; }
+
+        footer {
+            background: var(--blue);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer a { color: var(--orange); text-decoration: none; font-weight: 600; }
+
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo Lefebvre Dalloz" class="logo">
+    <h1>IA et responsabilité de l'avocat</h1>
+    <p class="accroche">Anticiper les nouvelles obligations et maîtriser les risques juridiques.</p>
+</header>
+
+<div class="container">
+    
+    <!-- Programme -->
+    <section class="section-card">
+        <h2>Programme de la formation</h2>
+        <details>
+            <summary>Module 1 : Enjeux de l'IA pour l'avocat</summary>
+            <div class="content">Comprendre le fonctionnement des IA génératives et leur intégration dans la pratique métier.</div>
+        </details>
+        <details>
+            <summary>Module 2 : Obligations déontologiques & Réglementation</summary>
+            <div class="content">Focus sur le secret professionnel, la protection des données et le futur règlement européen sur l'IA (AI Act).</div>
+        </details>
+        <details>
+            <summary>Module 3 : Maîtrise des risques et responsabilité</summary>
+            <div class="content">Analyse de la responsabilité civile professionnelle et mise en place de protocoles de sécurité.</div>
+        </details>
+    </section>
+
+    <!-- Infos Pratiques -->
+    <section class="section-card">
+        <h2>Informations Pratiques</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <strong>📅 Date & Horaires</strong><br>
+                Mardi 1er Avril 2026<br>
+                10h00 — 12h00
+            </div>
+            <div class="info-item">
+                <strong>📍 Lieu de rendez-vous</strong><br>
+                Augers-en-Brie (77560)<br>
+                Seine-et-Marne, France
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <iframe width="100%" height="100%" frameborder="0" style="border:0" 
+            src="https://www.google.com/maps/embed/v1/place?q=Augers-en-Brie,France&key=YOUR_API_KEY_HERE_OR_OMIT_FOR_SIMPLE_EMBED" 
+            allowfullscreen>
+            </iframe>
+            <!-- Note: Pour une version sans clé API, on utilise souvent un lien embed standard via Google Maps -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10524.234125633454!2d3.3496903!3d48.675626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e8cc408f6a9e6d%3A0x40a820425983800!2s77560%20Augers-en-Brie!5e0!3m2!1sfr!2sfr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Téléchargements -->
+    <section class="section-card" style="text-align: center; background: #fefefe; border: 1px dashed var(--blue);">
+        <h2>Vos documents</h2>
+        <p>Cliquez sur les boutons ci-dessous pour consulter vos supports de formation :</p>
+        <div class="btn-group">
+            <a href="programme.pdf" target="_blank" class="btn">📄 Télécharger le Programme</a>
+            <a href="livret-stagiaire.pdf" target="_blank" class="btn btn-orange">📕 Télécharger le Livret</a>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>Une question ? Contactez votre formateur :<br>
+    <strong>01 83 10 10 10</strong> | <a href="mailto:src-formation@lefebvre-dalloz.fr">src-formation@lefebvre-dalloz.fr</a></p>
+    <div style="margin-top: 1.5rem; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem;">
+        <a href="#">Accessibilité & Handicap</a> | Lefebvre Dalloz Compétences
+    </div>
+</footer>
+
+</body>
+</html>
