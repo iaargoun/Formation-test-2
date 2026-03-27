@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation IA - Lefebvre Dalloz</title>
+    <!-- Chargement des polices de la charte graphique -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,6 +12,7 @@
             --blue: #1E3F79;
             --bg-light: #F2F2F2;
             --text-dark: #333;
+            --white: #FFFFFF;
         }
 
         body {
@@ -21,196 +23,244 @@
             line-height: 1.6;
         }
 
+        /* Header Premium aux couleurs de la charte */
         header {
-            background-color: white;
-            padding: 2.5rem 1rem;
+            background-color: var(--blue);
+            padding: 3rem 1rem;
             text-align: center;
-            border-bottom: 5px solid var(--orange);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 6px solid var(--orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: var(--white);
         }
 
-        .logo { max-width: 220px; height: auto; margin-bottom: 1.5rem; }
+        .logo-container {
+            background: var(--white);
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
 
-        h1 {
+        .logo { 
+            max-width: 240px; 
+            height: auto; 
+            display: block;
+        }
+
+        header h1 {
             font-family: 'Montserrat', sans-serif;
-            color: var(--blue);
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             margin: 0.5rem 0;
             text-transform: uppercase;
-            letter-spacing: -0.5px;
+            letter-spacing: 0.5px;
         }
 
-        .accroche { font-style: italic; color: #555; font-size: 1.1rem; max-width: 600px; margin: 0.5rem auto; }
+        header .accroche { 
+            font-style: italic; 
+            color: var(--bg-light);
+            font-size: 1.2rem; 
+            max-width: 750px; 
+            margin: 0.8rem auto;
+            opacity: 0.95;
+        }
 
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+        .container { 
+            max-width: 900px; 
+            margin: -2rem auto 3rem auto; /* Remonte légèrement sur le header */
+            padding: 0 1.5rem; 
+        }
 
         .section-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         h2 {
             color: var(--blue);
             font-family: 'Montserrat', sans-serif;
-            border-bottom: 3px solid var(--orange);
+            border-bottom: 4px solid var(--orange);
             display: inline-block;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
             margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
 
-        /* Accordéon */
+        /* Accordéon de programme ergonomique */
         details {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            margin-bottom: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
 
         summary {
-            padding: 1.2rem;
+            padding: 1.25rem;
             font-weight: 600;
             cursor: pointer;
             color: var(--blue);
             list-style: none;
             position: relative;
+            background: #fdfdfd;
         }
 
         summary::-webkit-details-marker { display: none; }
 
         summary::after {
-            content: '▼';
+            content: '+';
             position: absolute;
-            right: 1.2rem;
-            font-size: 0.8rem;
+            right: 1.5rem;
+            font-size: 1.4rem;
+            color: var(--orange);
             transition: transform 0.3s;
         }
 
-        details[open] summary::after { transform: rotate(180deg); }
+        details[open] summary::after { content: '−'; transform: rotate(180deg); }
+        details[open] { border-color: var(--orange); box-shadow: 0 4px 12px rgba(239, 122, 0, 0.1); }
+        details[open] summary { background: #fffaf5; border-bottom: 1px solid #fee2d5; }
 
-        details[open] { border-color: var(--orange); background: #fffcf9; }
+        .content { padding: 1.25rem; font-size: 1.05rem; color: #4a5568; }
 
-        .content { padding: 0 1.2rem 1.2rem; font-size: 1rem; color: #444; }
-
-        /* Infos pratiques */
+        /* Infos pratiques et Carte */
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
-        .info-item { background: var(--bg-light); padding: 1.2rem; border-radius: 8px; border-left: 4px solid var(--orange); }
+        .info-item { background: #f8fafc; padding: 1.5rem; border-radius: 12px; border-left: 5px solid var(--orange); }
+        .info-item strong { color: var(--blue); display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
 
-        /* Carte */
         .map-container {
             width: 100%;
-            height: 350px;
-            border-radius: 12px;
+            height: 380px;
+            border-radius: 15px;
             overflow: hidden;
-            margin-top: 1.5rem;
-            border: 1px solid #ddd;
+            margin-top: 2rem;
+            border: 1px solid #e2e8f0;
         }
 
-        /* Boutons */
-        .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; justify-content: center; }
+        /* Boutons de téléchargement */
+        .btn-group { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; justify-content: center; }
         .btn {
             background-color: var(--blue);
-            color: white;
-            padding: 1rem 2rem;
+            color: var(--white);
+            padding: 1.1rem 2.2rem;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.2s, background 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
-            min-width: 200px;
+            min-width: 240px;
+            box-shadow: 0 4px 6px rgba(30, 63, 121, 0.2);
         }
-        .btn:hover { background-color: #142d56; transform: translateY(-2px); }
-        .btn-orange { background-color: var(--orange); }
-        .btn-orange:hover { background-color: #d16b00; }
+        .btn:hover { background-color: #142d56; transform: translateY(-3px); box-shadow: 0 6px 12px rgba(30, 63, 121, 0.3); }
+        .btn-orange { background-color: var(--orange); box-shadow: 0 4px 6px rgba(239, 122, 0, 0.2); }
+        .btn-orange:hover { background-color: #d16b00; box-shadow: 0 6px 12px rgba(239, 122, 0, 0.3); }
 
         footer {
             background: var(--blue);
-            color: white;
-            padding: 3rem 1rem;
+            color: var(--white);
+            padding: 4rem 1.5rem;
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 5rem;
         }
 
-        footer a { color: var(--orange); text-decoration: none; font-weight: 600; }
+        footer strong { color: var(--orange); }
+        footer a { color: var(--orange); text-decoration: none; font-weight: 600; transition: opacity 0.2s; }
+        footer a:hover { opacity: 0.8; text-decoration: underline; }
 
         @media (max-width: 600px) {
             .info-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 1.5rem; }
+            header h1 { font-size: 1.6rem; }
+            .section-card { padding: 1.5rem; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Logo Lefebvre Dalloz" class="logo">
+    <div class="logo-container">
+        <!-- Logo de la formation -->
+        <img src="logo.png" alt="Lefebvre Dalloz Compétences" class="logo" onerror="this.src='https://via.placeholder.com/240x80?text=Lefebvre+Dalloz';">
+    </div>
     <h1>IA et responsabilité de l'avocat</h1>
-    <p class="accroche">Anticiper les nouvelles obligations et maîtriser les risques juridiques.</p>
+    <p class="accroche">Quelles nouvelles obligations et quels risques juridiques à l'heure de l'intelligence artificielle ?</p>
 </header>
 
 <div class="container">
     
-    <!-- Programme -->
+    <!-- Section Programme Pédagogique -->
     <section class="section-card">
         <h2>Programme de la formation</h2>
-        <details>
-            <summary>Module 1 : Enjeux de l'IA pour l'avocat</summary>
-            <div class="content">Comprendre le fonctionnement des IA génératives et leur intégration dans la pratique métier.</div>
+        <details open>
+            <summary>Module 1 : Comprendre les enjeux de l'IA</summary>
+            <div class="content">
+                Introduction aux fondamentaux de l'IA générative. Panorama des opportunités pour la profession et premiers retours d'expérience sur l'usage des outils.
+            </div>
         </details>
         <details>
-            <summary>Module 2 : Obligations déontologiques & Réglementation</summary>
-            <div class="content">Focus sur le secret professionnel, la protection des données et le futur règlement européen sur l'IA (AI Act).</div>
+            <summary>Module 2 : Obligations déontologiques et réglementaires</summary>
+            <div class="content">
+                Étude du secret professionnel face à l'IA, de la protection des données personnelles et focus sur la conformité avec le futur règlement européen (AI Act).
+            </div>
         </details>
         <details>
-            <summary>Module 3 : Maîtrise des risques et responsabilité</summary>
-            <div class="content">Analyse de la responsabilité civile professionnelle et mise en place de protocoles de sécurité.</div>
+            <summary>Module 3 : Maîtrise de la responsabilité civile</summary>
+            <div class="content">
+                Analyse des nouveaux risques de responsabilité civile professionnelle. Mise en place de process internes et de clauses limitatives pour sécuriser l'activité.
+            </div>
         </details>
     </section>
 
-    <!-- Infos Pratiques -->
+    <!-- Section Logistique -->
     <section class="section-card">
         <h2>Informations Pratiques</h2>
         <div class="info-grid">
             <div class="info-item">
-                <strong>📅 Date & Horaires</strong><br>
-                Mardi 1er Avril 2026<br>
-                10h00 — 12h00
+                <strong>📅 Date & Horaires</strong>
+                Mercredi 1er Avril 2026<br>
+                Session de 10h00 à 12h00
             </div>
             <div class="info-item">
-                <strong>📍 Lieu de rendez-vous</strong><br>
-                Augers-en-Brie (77560)<br>
-                Seine-et-Marne, France
+                <strong>📍 Lieu de formation</strong>
+                Espace des Congrès<br>
+                Augers-en-Brie (77560)
             </div>
         </div>
         
         <div class="map-container">
-            <iframe width="100%" height="100%" frameborder="0" style="border:0" 
-            src="https://www.google.com/maps/embed/v1/place?q=Augers-en-Brie,France&key=YOUR_API_KEY_HERE_OR_OMIT_FOR_SIMPLE_EMBED" 
-            allowfullscreen>
+            <!-- Intégration Google Maps Standard (Augers-en-Brie) -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10524.234125633454!2d3.3496903!3d48.675626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e8cc408f6a9e6d%3A0x40a820425983800!2s77560%20Augers-en-Brie!5e0!3m2!1sfr!2sfr!4v1700000000000" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
             </iframe>
-            <!-- Note: Pour une version sans clé API, on utilise souvent un lien embed standard via Google Maps -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10524.234125633454!2d3.3496903!3d48.675626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e8cc408f6a9e6d%3A0x40a820425983800!2s77560%20Augers-en-Brie!5e0!3m2!1sfr!2sfr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
-    <!-- Téléchargements -->
-    <section class="section-card" style="text-align: center; background: #fefefe; border: 1px dashed var(--blue);">
-        <h2>Vos documents</h2>
-        <p>Cliquez sur les boutons ci-dessous pour consulter vos supports de formation :</p>
+    <!-- Section Documents & Ressources -->
+    <section class="section-card" style="text-align: center;">
+        <h2>Supports de formation</h2>
+        <p>Préparez votre session en téléchargeant vos documents officiels :</p>
         <div class="btn-group">
-            <a href="programme.pdf" target="_blank" class="btn">📄 Télécharger le Programme</a>
-            <a href="livret-stagiaire.pdf" target="_blank" class="btn btn-orange">📕 Télécharger le Livret</a>
+            <a href="programme.pdf" target="_blank" class="btn">📄 Programme détaillé (PDF)</a>
+            <a href="livret-stagiaire.pdf" target="_blank" class="btn btn-orange">📕 Livret du stagiaire (PDF)</a>
         </div>
     </section>
 
 </div>
 
 <footer>
-    <p>Une question ? Contactez votre formateur :<br>
-    <strong>01 83 10 10 10</strong> | <a href="mailto:src-formation@lefebvre-dalloz.fr">src-formation@lefebvre-dalloz.fr</a></p>
-    <div style="margin-top: 1.5rem; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem;">
-        <a href="#">Accessibilité & Handicap</a> | Lefebvre Dalloz Compétences
+    <p>Besoin d'assistance pour cette formation ?<br>
+    Appelez-nous au <strong>01 83 10 10 10</strong> ou écrivez à <a href="mailto:src-formation@lefebvre-dalloz.fr">src-formation@lefebvre-dalloz.fr</a></p>
+    
+    <div style="margin-top: 2rem; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; opacity: 0.8;">
+        <a href="#">Politique d'inclusion et handicap</a> | Lefebvre Dalloz Compétences © 2026
     </div>
 </footer>
 
